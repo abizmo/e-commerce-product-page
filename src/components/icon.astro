@@ -1,0 +1,23 @@
+---
+const ICONS = {
+  cart: await import(`@assets/icons/cart.svg`),
+  close: await import(`@assets/icons/close.svg`),
+  delete: await import(`@assets/icons/delete.svg`),
+  menu: await import(`@assets/icons/menu.svg`),
+  minus: await import(`@assets/icons/minus.svg`),
+  next: await import(`@assets/icons/next.svg`),
+  plus: await import(`@assets/icons/plus.svg`),
+  previous: await import(`@assets/icons/previous.svg`),
+};
+
+interface Props {
+  class?: string;
+  icon: keyof typeof ICONS;
+}
+
+const { icon, class: classname, ...rest } = Astro.props;
+
+const { default: IconComponent } = ICONS[icon];
+---
+
+<IconComponent class={classname} {...rest} />
