@@ -1,0 +1,33 @@
+---
+import Icon from "@components/icon.astro";
+import { Image } from "astro:assets";
+import avatar from "@assets/images/avatar.png";
+---
+
+<header>
+  <div>
+    <button>
+      <Icon icon="menu" />
+      <span class="visually-hidden">Menu</span>
+    </button>
+    <img src="/logo.svg" alt="sneakers" />
+    <nav>
+      <ul>
+        <li><a href="#">Collections</a></li>
+        <li><a href="#">Men</a></li>
+        <li><a href="#">Women</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div>
+    <button>
+      <Icon icon="cart" />
+      <span class="visually-hidden">Menu</span>
+    </button>
+    <a href="#">
+      <Image src={avatar} alt="John Doe" />
+    </a>
+  </div>
+</header>
