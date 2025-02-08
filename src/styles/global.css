@@ -25,6 +25,10 @@
 
     --lh-normal: 1.6;
     --lh-tight: 1.1;
+
+    --ls-wide: 0.04em;
+    --ls-wider: 0.09em;
+    --ls-widest: 0.15em;
 }
 
 *,
