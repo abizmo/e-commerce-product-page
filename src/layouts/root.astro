@@ -1,0 +1,33 @@
+---
+import Attribution from "@components/attribution.astro";
+import "@styles/global.css";
+
+const { title, googleFontUrl } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+
+    <meta name="generator" content={Astro.generator} />
+    <title>Frontend Mentor | {title}</title>
+    {
+      googleFontUrl && (
+        <>
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+          <link rel="stylesheet" href={googleFontUrl} />
+        </>
+      )
+    }
+  </head>
+  <body>
+    <slot />
+    <footer class="footer-attribution | container">
+      <Attribution />
+    </footer>
+  </body>
+</html>

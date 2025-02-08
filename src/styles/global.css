@@ -1,0 +1,77 @@
+:root {
+    --hsl-orange: 26 100% 55%;
+    --hsl-pale-orange: 25 100% 94%;
+
+    --hsl-neutral-900: 0 0% 0%;
+    --hsl-neutral-800: 220 13% 13%;
+    --hsl-neutral-600: 219 9% 45%;
+    --hsl-neutral-400: 220 14% 75%;
+    --hsl-neutral-200: 223 64% 98%;
+    --hsl-neutral-100: 0 0% 100%;
+
+    --clr-body: hsl(var(--hsl-neutral-600));
+    --clr-primary: hsl(var(--hsl-orange));
+
+    --ff-sans: 'Kumbh Sans', sans-serif;
+
+    --fs-900: clamp(1.75rem, 1.1361rem + 2.6194vw, 2.8125rem);
+    --fs-700: 1.75rem;
+    --fs-500: 18px;
+    --fs-400: 16px;
+    --fs-300: 14px;
+    --fs-200: clamp(0.75rem, 0.6778rem + 0.3082vw, 0.875rem);
+
+    --fw-bold: 700;
+
+    --lh-normal: 1.6;
+    --lh-tight: 1.1;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+body {
+    color: var(--clr-body);
+    font-family: var(--ff-sans);
+    font-size: var(--fs-400);
+    line-height: var(--lh-normal);
+}
+
+.bg-primary {
+    background-color: hsl(var(--hsl-orange));
+}
+
+.bg-secondary {
+    background-color: hsl(var(--hsl-neutral-200));
+}
+
+.bg-black {
+    background-color: hsl(var(--hsl-neutral-900));
+}
+
+.clr-primary {
+    color: hsl(var(--hsl-orange));
+}
+
+.clr-dark {
+    color: hsl(var(--hsl-neutral-900));
+}
+
+.clr-white {
+    color: hsl(var(--hsl-neutral-100));
+}
