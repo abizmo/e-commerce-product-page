@@ -11,6 +11,9 @@
 
   --clr-body: hsl(var(--hsl-neutral-600));
   --clr-primary: hsl(var(--hsl-orange));
+  --clr-neutral-800: hsl(var(--hsl-neutral-800));
+  --clr-neutral-400: hsl(var(--hsl-neutral-400));
+  --clr-neutral-100: hsl(var(--hsl-neutral-100));
 
   --ff-sans: 'Kumbh Sans', sans-serif;
 
@@ -43,10 +46,15 @@
   font: inherit;
 }
 
-img {
+img,
+svg {
   max-width: 100%;
   height: auto;
   display: block;
+}
+
+ul {
+  list-style: none;
 }
 
 body {

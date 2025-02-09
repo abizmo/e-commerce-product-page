@@ -4,30 +4,184 @@ import { Image } from "astro:assets";
 import avatar from "@assets/images/avatar.png";
 ---
 
-<header>
+<header class="primary-header">
   <div>
-    <button>
-      <Icon icon="menu" />
-      <span class="visually-hidden">Menu</span>
-    </button>
-    <img src="/logo.svg" alt="sneakers" />
-    <nav>
-      <ul>
-        <li><a href="#">Collections</a></li>
-        <li><a href="#">Men</a></li>
-        <li><a href="#">Women</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-  <div>
-    <button>
-      <Icon icon="cart" />
-      <span class="visually-hidden">Menu</span>
-    </button>
-    <a href="#">
-      <Image src={avatar} alt="John Doe" />
-    </a>
+    <div class="nav-wrapper">
+      <button
+        class="mobile-menu-toggle"
+        aria-controls="primary-navigation"
+        aria-expanded="false"
+      >
+        <Icon icon="menu" class="menu-btn" aria-hidden="true" />
+        <Icon icon="close" class="close-btn" aria-hidden="true" />
+        <span class="visually-hidden">Menu</span>
+      </button>
+      <a href="#"><img src="/logo.svg" alt="sneakers" /></a>
+      <nav class="primary-navigation" id="primary-navigation">
+        <ul class="nav-list" role="list">
+          <li><a href="#">Collections</a></li>
+          <li><a href="#">Men</a></li>
+          <li><a href="#">Women</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="nav-wrapper secondary-nav">
+      <button>
+        <Icon icon="cart" />
+        <span class="visually-hidden">Menu</span>
+      </button>
+      <a href="#" class="avatar">
+        <Image src={avatar} alt="John Doe" width={50} height={50} />
+      </a>
+    </div>
   </div>
 </header>
+
+<style>
+  .primary-header {
+    & > div {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      @media (width<48rem) {
+        height: 64px;
+      }
+
+      @media (width>=48rem) {
+        padding-block: 2rem;
+        border-bottom: 1px solid var(--clr-neutral-400);
+      }
+    }
+    padding-inline: 1.5rem;
+  }
+
+  .nav-wrapper {
+    --default-gap: 1rem;
+    display: flex;
+    gap: var(--flow-gap, var(--default-gap));
+    align-items: center;
+
+    @media (width >=48rem) {
+      --default-gap: 3.5rem;
+    }
+  }
+
+  .secondary-nav {
+    --flow-gap: 1.5rem;
+  }
+
+  button {
+    border: none;
+    background-color: transparent;
+    color: inherit;
+    padding: 0.25rem;
+    cursor: pointer;
+
+    &:hover,
+    &:focus-within {
+      color: var(--clr-neutral-800);
+    }
+  }
+
+  .mobile-menu-toggle {
+    &[aria-expanded="true"] {
+      position: absolute;
+      top: 1.5rem;
+      left: 1.5rem;
+
+      & .close-btn {
+        display: block;
+      }
+
+      & .menu-btn {
+        display: none;
+      }
+    }
+
+    & .close-btn {
+      display: none;
+    }
+
+    @media (width >= 48rem) {
+      display: none;
+    }
+  }
+
+  .primary-navigation {
+    @media (width < 48rem) {
+      display: none;
+    }
+  }
+
+  .avatar {
+    border-radius: 9999rem;
+    border: 2px solid transparent;
+
+    @media (width < 48rem) {
+      & > img {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+
+    &:hover,
+    &:focus-within {
+      border-color: var(--clr-primary);
+    }
+  }
+
+  .nav-list {
+    @media (width >= 48rem) {
+      display: flex;
+      gap: 2rem;
+      font-size: var(--fs-300);
+
+      & a {
+        color: inherit;
+        text-decoration: none;
+        position: relative;
+
+        &:hover,
+        &:focus-within {
+          color: var(--clr-neutral-800);
+
+          &::after {
+            content: "";
+            position: absolute;
+            bottom: -3rem;
+            display: block;
+            width: 100%;
+            height: 0.25rem;
+            background-color: var(--clr-primary);
+          }
+        }
+      }
+    }
+  }
+</style>
+
+<script>
+  const menuToggle = document.querySelector(
+    ".mobile-menu-toggle"
+  ) as HTMLButtonElement;
+  const primaryNav = document.querySelector(
+    ".primary-navigation"
+  ) as HTMLDivElement;
+  const visuallyHiddenText = menuToggle.querySelector(
+    "span"
+  ) as HTMLSpanElement;
+
+  menuToggle.addEventListener("click", () => {
+    if (primaryNav.hasAttribute("data-visible")) {
+      menuToggle.setAttribute("aria-expanded", "false");
+      visuallyHiddenText.innerText = "Menu";
+    } else {
+      menuToggle.setAttribute("aria-expanded", "true");
+      visuallyHiddenText.innerHTML = "Close";
+    }
+    primaryNav.toggleAttribute("data-visible");
+  });
+</script>
