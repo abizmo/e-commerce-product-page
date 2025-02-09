@@ -4,7 +4,7 @@ import { Image } from "astro:assets";
 import avatar from "@assets/images/avatar.png";
 ---
 
-<header class="primary-header">
+<header class="primary-header | container">
   <div>
     <div class="nav-wrapper">
       <button
@@ -55,7 +55,6 @@ import avatar from "@assets/images/avatar.png";
         border-bottom: 1px solid var(--clr-neutral-400);
       }
     }
-    padding-inline: 1.5rem;
   }
 
   .nav-wrapper {
