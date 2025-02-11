@@ -102,6 +102,6 @@ body {
   --padding-inline: 1.5rem;
   --max-width: 1120px;
 
-  width: max(var(--max-width), calc(100dvw - (var(--padding-inline) * 2)));
+  width: min(var(--max-width), calc(100dvw - (var(--padding-inline) * 2)));
   margin-inline: auto;
 }
