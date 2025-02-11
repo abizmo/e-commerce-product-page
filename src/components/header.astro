@@ -90,6 +90,7 @@ import avatar from "@assets/images/avatar.png";
       position: absolute;
       top: 1.5rem;
       left: 1.5rem;
+      z-index: 9999;
 
       & .close-btn {
         display: block;
@@ -112,6 +113,14 @@ import avatar from "@assets/images/avatar.png";
   .primary-navigation {
     @media (width < 48rem) {
       display: none;
+
+      background-color: hsl(var(--hsl-neutral-900) / 0.75);
+      position: absolute;
+      inset: 0;
+    }
+
+    &[data-visible] {
+      display: block;
     }
   }
 
@@ -133,6 +142,27 @@ import avatar from "@assets/images/avatar.png";
   }
 
   .nav-list {
+    background-color: var(--clr-neutral-100);
+
+    & a {
+      text-decoration: none;
+    }
+
+    @media (width < 48rem) {
+      height: 100%;
+      width: 16rem;
+      padding: 4rem 1.5rem;
+
+      & li + li {
+        margin-top: 1rem;
+      }
+
+      & a {
+        color: var(--clr-neutral-800);
+        font-weight: var(--fw-bold);
+      }
+    }
+
     @media (width >= 48rem) {
       display: flex;
       gap: 2rem;
