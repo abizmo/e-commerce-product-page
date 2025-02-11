@@ -111,8 +111,12 @@ import avatar from "@assets/images/avatar.png";
   }
 
   .primary-navigation {
+    transition: all 0.25s;
+    transition-behavior: allow-discrete;
+
     @media (width < 48rem) {
       display: none;
+      opacity: 0;
 
       background-color: hsl(var(--hsl-neutral-900) / 0.75);
       position: absolute;
@@ -121,6 +125,11 @@ import avatar from "@assets/images/avatar.png";
 
     &[data-visible] {
       display: block;
+      opacity: 1;
+
+      @starting-style {
+        opacity: 0;
+      }
     }
   }
 
@@ -143,6 +152,9 @@ import avatar from "@assets/images/avatar.png";
 
   .nav-list {
     background-color: var(--clr-neutral-100);
+    transform: translateX(-16rem);
+    transition: all 0.3s;
+    transition-behavior: allow-discrete;
 
     & a {
       text-decoration: none;
@@ -152,6 +164,12 @@ import avatar from "@assets/images/avatar.png";
       height: 100%;
       width: 16rem;
       padding: 4rem 1.5rem;
+
+      transform: translateX(0);
+
+      @starting-style {
+        transform: translateX(-16rem);
+      }
 
       & li + li {
         margin-top: 1rem;
