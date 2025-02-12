@@ -1,0 +1,97 @@
+---
+
+---
+
+<div class="pc">
+  <header class="product-header">
+    <span class="product-brand">Sneaker company</span>
+    <h1 class="product-name">Fall Limited Edition sneakers</h1>
+  </header>
+  <main class="product-body">
+    <p class="product-description">
+      These low-profile sneakers are your perfect casual wear companion.
+      Featuring a durable rubber outer sole, they’ll withstand everything the
+      weather can offer.
+    </p>
+  </main>
+  <footer class="product-footer">
+    <div class="price-wrapper">
+      <span class="finish-price">$125.00</span>
+      <span class="discount">50%</span>
+    </div>
+    <span class="actual-price">$250.00</span>
+  </footer>
+</div>
+
+<style>
+  .pc {
+    outline: 2px solid indianred;
+  }
+
+  .product-header {
+    margin-bottom: 1rem;
+  }
+
+  .product-body {
+    margin-bottom: 1.5rem;
+  }
+
+  .product-footer {
+    @media (width < 48rem) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  .product-brand {
+    font-size: var(--fs-200);
+    font-weight: var(--fw-bold);
+    line-height: var(--lh-tight);
+    letter-spacing: var(--ls-widest);
+    text-transform: uppercase;
+
+    margin-bottom: 1rem;
+  }
+
+  .product-name {
+    font-size: var(--fs-900);
+    font-weight: var(--fw-bold);
+    line-height: var(--lh-tight);
+    color: var(--clr-neutral-800);
+    text-transform: capitalize;
+  }
+
+  .price-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    @media (width >= 48rem) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .finish-price {
+    font-size: var(--fs-700);
+    font-weight: var(--fw-bold);
+    line-height: var(--lh-tight);
+    color: var(--clr-neutral-800);
+  }
+
+  .discount {
+    background-color: var(--clr-neutral-800);
+    font-weight: var(--fw-bold);
+    line-height: var(--lh-tight);
+    color: var(--clr-neutral-100);
+    border-radius: 0.375rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .actual-price {
+    font-weight: var(--fw-bold);
+    line-height: var(--lh-tight);
+    letter-spacing: var(--ls-wide);
+    text-decoration: line-through;
+  }
+</style>
