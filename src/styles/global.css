@@ -130,3 +130,19 @@ body {
     --default-gap: 3.5rem;
   }
 }
+
+.mb-md {
+  margin-bottom: 1rem;
+
+  @media (width >= 48rem) {
+    margin-bottom: 2rem;
+  }
+}
+
+.mb-lg {
+  margin-bottom: 3rem;
+
+  @media (width >= 48rem) {
+    margin-bottom: 6rem;
+  }
+}

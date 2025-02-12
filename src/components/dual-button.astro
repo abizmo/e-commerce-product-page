@@ -14,9 +14,6 @@ import Icon from "./icon.astro";
 
 <style>
   .btn-container {
-    /* TODO: quitar linea */
-    outline: 2px dotted firebrick;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -38,6 +35,10 @@ import Icon from "./icon.astro";
     & span {
       color: var(--clr-neutral-800);
       font-weight: var(--fw-bold);
+    }
+
+    @media (width >= 48rem) {
+      padding-inline: 1rem;
     }
   }
 </style>

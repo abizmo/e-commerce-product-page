@@ -1,8 +1,8 @@
 ---
-
+const { class: classes, ...rest } = Astro.props;
 ---
 
-<div class="pc">
+<div class={classes} {...rest}>
   <header class="product-header">
     <span class="product-brand">Sneaker company</span>
     <h1 class="product-name">Fall Limited Edition sneakers</h1>
