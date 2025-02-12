@@ -1,0 +1,39 @@
+---
+import { Image } from "astro:assets";
+
+import avatar from "@assets/images/avatar.png";
+import Icon from "@components/icon.astro";
+---
+
+<nav class="flex-wrapper nav-user">
+  <button>
+    <Icon icon="cart" />
+    <span class="visually-hidden">Menu</span>
+  </button>
+  <a href="#" class="avatar">
+    <Image src={avatar} alt="John Doe" width={50} height={50} />
+  </a>
+</nav>
+
+<style>
+  .nav-user {
+    --flow-gap: 1.5rem;
+  }
+
+  .avatar {
+    border-radius: 9999rem;
+    border: 2px solid transparent;
+
+    @media (width < 48rem) {
+      & > img {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+
+    &:hover,
+    &:focus-within {
+      border-color: var(--clr-primary);
+    }
+  }
+</style>

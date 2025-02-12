@@ -1,0 +1,38 @@
+---
+import Icon from "@components/icon.astro";
+
+const { class: classes, ...rest } = Astro.props;
+---
+
+<button class:list={["mobile-menu-toggle", classes]} {...rest}>
+  <Icon icon="menu" class="menu-btn" aria-hidden="true" />
+  <Icon icon="close" class="close-btn" aria-hidden="true" />
+  <span class="visually-hidden">Menu</span>
+</button>
+
+<style>
+  .mobile-menu-toggle {
+    &[aria-expanded="true"] {
+      position: absolute;
+      top: 1.5rem;
+      left: 1.5rem;
+      z-index: 9999;
+
+      & .close-btn {
+        display: block;
+      }
+
+      & .menu-btn {
+        display: none;
+      }
+    }
+
+    & .close-btn {
+      display: none;
+    }
+
+    @media (width >= 48rem) {
+      display: none;
+    }
+  }
+</style>

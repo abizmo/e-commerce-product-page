@@ -1,223 +1,45 @@
 ---
-import Icon from "@components/icon.astro";
-import { Image } from "astro:assets";
-import avatar from "@assets/images/avatar.png";
+import MobileMenuToggle from "@components/mobile-menu-toggle.astro";
+import Navigation from "@components/navigation.astro";
+import NavUser from "@components/nav-user.astro";
 ---
 
 <header class="primary-header | container">
-  <div>
-    <div class="nav-wrapper">
-      <button
-        class="mobile-menu-toggle"
-        aria-controls="primary-navigation"
-        aria-expanded="false"
-      >
-        <Icon icon="menu" class="menu-btn" aria-hidden="true" />
-        <Icon icon="close" class="close-btn" aria-hidden="true" />
-        <span class="visually-hidden">Menu</span>
-      </button>
-      <a href="#"><img src="/logo.svg" alt="sneakers" /></a>
-      <nav class="primary-navigation" id="primary-navigation">
-        <ul class="nav-list" role="list">
-          <li><a href="#">Collections</a></li>
-          <li><a href="#">Men</a></li>
-          <li><a href="#">Women</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-    <div class="nav-wrapper secondary-nav">
-      <button>
-        <Icon icon="cart" />
-        <span class="visually-hidden">Menu</span>
-      </button>
-      <a href="#" class="avatar">
-        <Image src={avatar} alt="John Doe" width={50} height={50} />
-      </a>
-    </div>
+  <div class="flex-wrapper">
+    <MobileMenuToggle
+      id="mobile-menu-toggle"
+      aria-controls="primary-navigation"
+      aria-expanded="false"
+    />
+    <a href="#"><img src="/logo.svg" alt="sneakers" /></a>
+    <Navigation id="primary-navigation" />
   </div>
+  <NavUser />
 </header>
 
 <style>
   .primary-header {
-    & > div {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      @media (width<48rem) {
-        height: 64px;
-      }
-
-      @media (width>=48rem) {
-        padding-block: 2rem;
-        border-bottom: 1px solid var(--clr-neutral-400);
-      }
-    }
-  }
-
-  .nav-wrapper {
-    --default-gap: 1rem;
     display: flex;
-    gap: var(--flow-gap, var(--default-gap));
     align-items: center;
+    justify-content: space-between;
 
-    @media (width >=48rem) {
-      --default-gap: 3.5rem;
-    }
-  }
-
-  .secondary-nav {
-    --flow-gap: 1.5rem;
-  }
-
-  button {
-    border: none;
-    background-color: transparent;
-    color: inherit;
-    padding: 0.25rem;
-    cursor: pointer;
-
-    &:hover,
-    &:focus-within {
-      color: var(--clr-neutral-800);
-    }
-  }
-
-  .mobile-menu-toggle {
-    &[aria-expanded="true"] {
-      position: absolute;
-      top: 1.5rem;
-      left: 1.5rem;
-      z-index: 9999;
-
-      & .close-btn {
-        display: block;
-      }
-
-      & .menu-btn {
-        display: none;
-      }
+    @media (width<48rem) {
+      height: 64px;
     }
 
-    & .close-btn {
-      display: none;
-    }
-
-    @media (width >= 48rem) {
-      display: none;
-    }
-  }
-
-  .primary-navigation {
-    transition: all 0.25s;
-    transition-behavior: allow-discrete;
-
-    @media (width < 48rem) {
-      display: none;
-      opacity: 0;
-
-      background-color: hsl(var(--hsl-neutral-900) / 0.75);
-      position: absolute;
-      inset: 0;
-    }
-
-    &[data-visible] {
-      display: block;
-      opacity: 1;
-
-      @starting-style {
-        opacity: 0;
-      }
-    }
-  }
-
-  .avatar {
-    border-radius: 9999rem;
-    border: 2px solid transparent;
-
-    @media (width < 48rem) {
-      & > img {
-        width: 1.5rem;
-        height: 1.5rem;
-      }
-    }
-
-    &:hover,
-    &:focus-within {
-      border-color: var(--clr-primary);
-    }
-  }
-
-  .primary-navigation[data-visible] .nav-list {
-    transform: translateX(0);
-
-    @starting-style {
-      transform: translateX(-16rem);
-    }
-  }
-  .nav-list {
-    background-color: var(--clr-neutral-100);
-
-    & a {
-      text-decoration: none;
-    }
-
-    @media (width < 48rem) {
-      height: 100%;
-      width: 16rem;
-      padding: 4rem 1.5rem;
-      transform: translateX(-16rem);
-      transition: all 0.3s;
-      transition-behavior: allow-discrete;
-
-      & li + li {
-        margin-top: 1rem;
-      }
-
-      & a {
-        color: var(--clr-neutral-800);
-        font-weight: var(--fw-bold);
-      }
-    }
-
-    @media (width >= 48rem) {
-      display: flex;
-      gap: 2rem;
-      font-size: var(--fs-300);
-
-      & a {
-        color: inherit;
-        text-decoration: none;
-        position: relative;
-
-        &:hover,
-        &:focus-within {
-          color: var(--clr-neutral-800);
-
-          &::after {
-            content: "";
-            position: absolute;
-            top: calc(100% + 3rem);
-            transform: translateY(-50%);
-            display: block;
-            width: 100%;
-            height: 0.25rem;
-            background-color: var(--clr-primary);
-          }
-        }
-      }
+    @media (width>=48rem) {
+      padding-block: 2rem;
+      border-bottom: 1px solid var(--clr-neutral-400);
     }
   }
 </style>
 
 <script>
-  const menuToggle = document.querySelector(
-    ".mobile-menu-toggle"
+  const menuToggle = document.getElementById(
+    "mobile-menu-toggle"
   ) as HTMLButtonElement;
-  const primaryNav = document.querySelector(
-    ".primary-navigation"
+  const primaryNav = document.getElementById(
+    "primary-navigation"
   ) as HTMLDivElement;
   const visuallyHiddenText = menuToggle.querySelector(
     "span"
