@@ -13,6 +13,7 @@
   --clr-primary: hsl(var(--hsl-orange));
   --clr-neutral-800: hsl(var(--hsl-neutral-800));
   --clr-neutral-400: hsl(var(--hsl-neutral-400));
+  --clr-neutral-200: hsl(var(--hsl-neutral-200));
   --clr-neutral-100: hsl(var(--hsl-neutral-100));
 
   --ff-sans: "Kumbh Sans", sans-serif;
