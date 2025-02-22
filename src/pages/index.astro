@@ -4,6 +4,7 @@ import Header from "@components/header.astro";
 import ProductInfo from "@components/product-info.astro";
 import DualButton from "@components/dual-button.astro";
 import AddButton from "@components/add-button.astro";
+import ProductGallery from "@components/product-gallery.astro";
 ---
 
 <Root
@@ -12,7 +13,7 @@ import AddButton from "@components/add-button.astro";
 >
   <Header />
   <div class="container main-container mb-lg">
-    <div class="gallery"></div>
+    <ProductGallery />
     <div class="">
       <ProductInfo class="mb-md" />
       <div class="actions-wrapper">

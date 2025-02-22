@@ -1,0 +1,33 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+
+const imagesSrc = [
+  "/images/product-1.jpg",
+  "/images/product-2.jpg",
+  "/images/product-3.jpg",
+  "/images/product-4.jpg",
+];
+
+const thumbnailsSrc = [
+  "/images/thumbnail-1.jpg",
+  "/images/thumbnail-2.jpg",
+  "/images/thumbnail-3.jpg",
+  "/images/thumbnail-4.jpg",
+];
+---
+
+<div class="gallery">
+  <div class="main-image">
+    {imagesSrc.map((src) => <img src={src} alt="sneakers" />)}
+  </div>
+  <ul class="thumbnails">
+    {
+      thumbnailsSrc.map((src, idx) => (
+        <li>
+          <img src={src} alt={`thumbnails sneakers ${idx}`} />
+        </li>
+      ))
+    }
+  </ul>
+</div>
