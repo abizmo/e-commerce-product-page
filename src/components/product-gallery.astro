@@ -24,10 +24,44 @@ const thumbnailsSrc = [
   <ul class="thumbnails">
     {
       thumbnailsSrc.map((src, idx) => (
-        <li>
-          <img src={src} alt={`thumbnails sneakers ${idx}`} />
+        <li class="thumbnail">
+          <button>
+            <img src={src} alt={`thumbnails sneakers ${idx}`} />
+          </button>
         </li>
       ))
     }
   </ul>
 </div>
+
+<style>
+  .thumbnails {
+    display: none;
+
+    @media (width >= 768px) {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: space-between;
+      margin-top: 2rem;
+    }
+  }
+
+  .thumbnail {
+    max-width: 5.5rem;
+
+    & > button {
+      padding: 0;
+      border-radius: 0.5rem;
+      overflow: hidden;
+
+      &:hover,
+      &:focus-within {
+        outline: 2px solid var(--clr-primary);
+
+        & > * {
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+</style>
