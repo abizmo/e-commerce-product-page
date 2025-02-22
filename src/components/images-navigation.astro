@@ -1,0 +1,39 @@
+---
+import GalleryButton from "./gallery-button";
+import Icon from "./icon.astro";
+
+const { class: className, ...rest } = Astro.props;
+---
+
+<nav class:list={["product-navigation", className]} {...rest}>
+  <GalleryButton mode="prev" client:load>
+    <Icon icon="previous" />
+  </GalleryButton>
+  <GalleryButton mode="next" client:load>
+    <Icon icon="next" />
+  </GalleryButton>
+</nav>
+
+<style>
+  .product-navigation {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem;
+
+    button {
+      background: var(--clr-neutral-100);
+      color: var(--clr-neutral-800);
+      border-radius: 50%;
+      width: 2.5rem;
+      height: 2.5rem;
+      display: grid;
+      place-content: center;
+      cursor: pointer;
+
+      &:hover,
+      &:focus-within {
+        color: var(--clr-primary);
+      }
+    }
+  }
+</style>

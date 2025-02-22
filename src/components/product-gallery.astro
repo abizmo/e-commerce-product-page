@@ -1,0 +1,93 @@
+---
+import ImagesNavigation from "@components/images-navigation.astro";
+import GalleryImage from "@components/gallery-image";
+import Thumbnails from "@components/thumbnails";
+import Gallery from "./gallery";
+
+const images = [
+  {
+    src: "/images/product-1.jpg",
+    thumbnail: "/images/thumbnail-1.jpg",
+    alt: "sneakers",
+  },
+  {
+    src: "/images/product-2.jpg",
+    thumbnail: "/images/thumbnail-2.jpg",
+    alt: "sneakers",
+  },
+  {
+    src: "/images/product-3.jpg",
+    thumbnail: "/images/thumbnail-3.jpg",
+    alt: "sneakers",
+  },
+  {
+    src: "/images/product-4.jpg",
+    thumbnail: "/images/thumbnail-4.jpg",
+    alt: "sneakers",
+  },
+];
+---
+
+<Gallery className="gallery" images={images} client:load>
+  <div class="product-image">
+    <GalleryImage client:only="react" />
+    <ImagesNavigation class="gallery__navigation" />
+  </div>
+  <Thumbnails className="thumbnails" client:only="react" />
+</Gallery>
+
+<style>
+  .product-image {
+    position: relative;
+    display: grid;
+    align-content: center;
+    overflow: hidden;
+
+    @media (width < 768px) {
+      aspect-ratio: 1.25;
+    }
+
+    @media (width >= 768px) {
+      border-radius: 1rem;
+    }
+  }
+
+  .gallery__navigation {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+
+    @media (width >= 768px) {
+      display: none;
+    }
+  }
+
+  .thumbnails {
+    display: none;
+
+    @media (width >= 768px) {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: space-between;
+      margin-top: 2rem;
+    }
+
+    li {
+      max-width: 5.5rem;
+
+      & > button {
+        padding: 0;
+        border-radius: 0.5rem;
+        overflow: hidden;
+
+        &:hover,
+        &:focus-within {
+          & > * {
+            opacity: 0.7;
+          }
+        }
+      }
+    }
+  }
+</style>
