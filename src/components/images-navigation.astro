@@ -24,6 +24,11 @@ const { class: className, ...rest } = Astro.props;
       display: grid;
       place-content: center;
       cursor: pointer;
+
+      &:hover,
+      &:focus-within {
+        color: var(--clr-primary);
+      }
     }
   }
 </style>
