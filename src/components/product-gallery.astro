@@ -1,12 +1,10 @@
 ---
-import type { ImageMetadata } from "astro";
-import { Image } from "astro:assets";
-
+import ImagesNavigation from "@components/images-navigation.astro";
 const imagesSrc = [
   "/images/product-1.jpg",
-  "/images/product-2.jpg",
-  "/images/product-3.jpg",
-  "/images/product-4.jpg",
+  // "/images/product-2.jpg",
+  // "/images/product-3.jpg",
+  // "/images/product-4.jpg",
 ];
 
 const thumbnailsSrc = [
@@ -18,8 +16,9 @@ const thumbnailsSrc = [
 ---
 
 <div class="gallery">
-  <div class="main-image">
+  <div class="product-image">
     {imagesSrc.map((src) => <img src={src} alt="sneakers" />)}
+    <ImagesNavigation class="gallery__navigation" />
   </div>
   <ul class="thumbnails">
     {
@@ -35,6 +34,32 @@ const thumbnailsSrc = [
 </div>
 
 <style>
+  .product-image {
+    position: relative;
+    display: grid;
+    align-content: center;
+    overflow: hidden;
+
+    @media (width <= 768px) {
+      aspect-ratio: 1.25;
+    }
+
+    @media (width >= 768px) {
+      border-radius: 1rem;
+    }
+  }
+
+  .gallery__navigation {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+
+    @media (width >= 768px) {
+      display: none;
+    }
+  }
+
   .thumbnails {
     display: none;
 
