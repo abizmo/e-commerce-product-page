@@ -12,16 +12,16 @@ import ProductGallery from "@components/product-gallery.astro";
   googleFontUrl="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap"
 >
   <Header />
-  <div class="container main-container mb-lg">
+  <main class="container main-container mb-lg">
     <ProductGallery />
-    <div class="">
+    <div class="info-container">
       <ProductInfo class="mb-md" />
       <div class="actions-wrapper">
         <DualButton />
         <AddButton />
       </div>
     </div>
-  </div>
+  </main>
 </Root>
 
 <style>
@@ -32,11 +32,19 @@ import ProductGallery from "@components/product-gallery.astro";
 
     @media (width >= 48rem) {
       --padding-inline: 3rem;
-      padding-inline: 3rem;
+      padding-inline: clamp(0rem, -9rem + 18.75vw, 3rem);
       margin-top: 5rem;
       align-items: center;
       grid-template-columns: repeat(2, 1fr);
-      gap: 8rem;
+      gap: clamp(2rem, -4.8571rem + 14.2857vw, 8rem);
+    }
+  }
+
+  .info-container {
+    container-type: inline-size;
+
+    @media (width < 48rem) {
+      padding-inline: 1.5rem;
     }
   }
 
@@ -44,20 +52,8 @@ import ProductGallery from "@components/product-gallery.astro";
     display: grid;
     gap: 1rem;
 
-    @media (width >= 48rem) {
+    @container (width >= 25rem) {
       grid-template-columns: 10rem 1fr;
-    }
-  }
-
-  .gallery {
-    /* TODO: cambiar */
-    background-color: firebrick;
-    width: 375px;
-    height: 300px;
-
-    @media (width >= 48rem) {
-      width: 448px;
-      height: 568px;
     }
   }
 </style>
