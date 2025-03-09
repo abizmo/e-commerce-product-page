@@ -5,6 +5,7 @@ import ProductInfo from "@components/product-info.astro";
 import DualButton from "@components/dual-button.astro";
 import AddButton from "@components/add-button.astro";
 import ProductGallery from "@components/product-gallery.astro";
+import Lightbox from "@components/lightbox";
 ---
 
 <Root
@@ -22,6 +23,7 @@ import ProductGallery from "@components/product-gallery.astro";
       </div>
     </div>
   </main>
+  <Lightbox client:load>Hola</Lightbox>
 </Root>
 
 <style>

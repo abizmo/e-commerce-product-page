@@ -1,5 +1,6 @@
 import { useStore } from "@nanostores/react";
 import { gallery } from "@stores/gallery";
+import { open } from "@stores/lightbox";
 
 function GalleryImage() {
   const { selectedImage, images } = useStore(gallery);
@@ -7,7 +8,11 @@ function GalleryImage() {
 
   const { src, alt } = images[selectedImage];
 
-  return <img src={src} alt={alt} />;
+  return (
+    <button onClick={open} style={{ padding: 0 }}>
+      <img src={src} alt={alt} />
+    </button>
+  );
 }
 
 export default GalleryImage;
