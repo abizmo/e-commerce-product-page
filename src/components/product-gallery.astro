@@ -1,37 +1,40 @@
 ---
 import ImagesNavigation from "@components/images-navigation.astro";
-const imagesSrc = [
-  "/images/product-1.jpg",
-  // "/images/product-2.jpg",
-  // "/images/product-3.jpg",
-  // "/images/product-4.jpg",
-];
+import GalleryImage from "@components/gallery-image";
+import Thumbnails from "@components/thumbnails";
+import Gallery from "./gallery";
 
-const thumbnailsSrc = [
-  "/images/thumbnail-1.jpg",
-  "/images/thumbnail-2.jpg",
-  "/images/thumbnail-3.jpg",
-  "/images/thumbnail-4.jpg",
+const images = [
+  {
+    src: "/images/product-1.jpg",
+    thumbnail: "/images/thumbnail-1.jpg",
+    alt: "sneakers",
+  },
+  {
+    src: "/images/product-2.jpg",
+    thumbnail: "/images/thumbnail-2.jpg",
+    alt: "sneakers",
+  },
+  {
+    src: "/images/product-3.jpg",
+    thumbnail: "/images/thumbnail-3.jpg",
+    alt: "sneakers",
+  },
+  {
+    src: "/images/product-4.jpg",
+    thumbnail: "/images/thumbnail-4.jpg",
+    alt: "sneakers",
+  },
 ];
 ---
 
-<div class="gallery">
+<Gallery className="gallery" images={images} client:load>
   <div class="product-image">
-    {imagesSrc.map((src) => <img src={src} alt="sneakers" />)}
+    <GalleryImage client:only="react" />
     <ImagesNavigation class="gallery__navigation" />
   </div>
-  <ul class="thumbnails">
-    {
-      thumbnailsSrc.map((src, idx) => (
-        <li class="thumbnail">
-          <button>
-            <img src={src} alt={`thumbnails sneakers ${idx}`} />
-          </button>
-        </li>
-      ))
-    }
-  </ul>
-</div>
+  <Thumbnails className="thumbnails" client:only="react" />
+</Gallery>
 
 <style>
   .product-image {
@@ -69,22 +72,20 @@ const thumbnailsSrc = [
       justify-content: space-between;
       margin-top: 2rem;
     }
-  }
 
-  .thumbnail {
-    max-width: 5.5rem;
+    li {
+      max-width: 5.5rem;
 
-    & > button {
-      padding: 0;
-      border-radius: 0.5rem;
-      overflow: hidden;
+      & > button {
+        padding: 0;
+        border-radius: 0.5rem;
+        overflow: hidden;
 
-      &:hover,
-      &:focus-within {
-        outline: 2px solid var(--clr-primary);
-
-        & > * {
-          opacity: 0.7;
+        &:hover,
+        &:focus-within {
+          & > * {
+            opacity: 0.7;
+          }
         }
       }
     }

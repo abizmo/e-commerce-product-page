@@ -1,12 +1,17 @@
 ---
+import GalleryButton from "./gallery-button";
 import Icon from "./icon.astro";
 
 const { class: className, ...rest } = Astro.props;
 ---
 
 <nav class:list={["product-navigation", className]} {...rest}>
-  <button><Icon icon="previous" /></button>
-  <button><Icon icon="next" /></button>
+  <GalleryButton mode="prev" client:load>
+    <Icon icon="previous" />
+  </GalleryButton>
+  <GalleryButton mode="next" client:load>
+    <Icon icon="next" />
+  </GalleryButton>
 </nav>
 
 <style>
