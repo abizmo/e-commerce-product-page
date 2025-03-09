@@ -26,9 +26,11 @@ const images = [
     alt: "sneakers",
   },
 ];
+
+const { class: className, ...rest } = Astro.props;
 ---
 
-<Gallery className="gallery" images={images} client:load>
+<Gallery className={className} images={images} client:load {...rest}>
   <div class="product-image">
     <GalleryImage client:only="react" />
     <ImagesNavigation class="gallery__navigation" />

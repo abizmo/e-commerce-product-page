@@ -65,10 +65,11 @@ button {
   padding: 0.25rem;
   cursor: pointer;
 
+  /* TODO: corregir
   &:hover,
   &:focus-within {
     color: var(--clr-neutral-800);
-  }
+  } */
 }
 
 body {

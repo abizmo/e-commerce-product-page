@@ -1,0 +1,5 @@
+.galleryImage {
+  @media (width >= 48rem) {
+    border-radius: 1rem;
+  }
+}
