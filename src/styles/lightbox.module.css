@@ -1,0 +1,24 @@
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  border: none;
+  background-color: transparent;
+}
+
+::backdrop {
+  background-color: hsl(var(--hsl-neutral-900) / 0.75);
+}
+
+.btnClose {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: var(--clr-neutral-100);
+
+  :hover {
+    color: var(--clr-primary);
+  }
+}

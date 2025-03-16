@@ -1,5 +1,7 @@
 import { atom } from "nanostores";
 
-export const isOpen = atom(false);
+export const isLightboxOpen = atom(false);
 
-export const open = () => isOpen.set(true);
+export const openLightbox = () => isLightboxOpen.set(true);
+
+export const closeLightbox = () => isLightboxOpen.set(false);
