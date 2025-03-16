@@ -5,6 +5,7 @@
   translate: -50% -50%;
   border: none;
   background-color: transparent;
+  max-width: 35rem;
 }
 
 ::backdrop {
@@ -13,9 +14,8 @@
 
 .btnClose {
   display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
+  margin-left: auto;
+  margin-bottom: 1.5rem;
   color: var(--clr-neutral-100);
 
   :hover {
