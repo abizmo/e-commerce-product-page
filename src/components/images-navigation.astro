@@ -21,11 +21,12 @@ const { class: className, ...rest } = Astro.props;
     padding: 1.5rem;
 
     button {
+      --btn-size: 2.5rem;
       background: var(--clr-neutral-100);
       color: var(--clr-neutral-800);
       border-radius: 50%;
-      width: 2.5rem;
-      height: 2.5rem;
+      width: var(--btn-size);
+      aspect-ratio: 1;
       display: grid;
       place-content: center;
       cursor: pointer;

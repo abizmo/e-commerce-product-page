@@ -10,12 +10,17 @@ function Gallery({
   children,
   className,
   images,
+  ...rest
 }: PropsWithChildren<GalleryProps>) {
   useEffect(() => {
     initGallery(images);
   }, [images]);
 
-  return <div className={className}>{children}</div>;
+  return (
+    <div className={className} {...rest}>
+      {children}
+    </div>
+  );
 }
 
 export default Gallery;

@@ -24,7 +24,7 @@ import Lightbox from "@components/lightbox";
     </div>
   </main>
   <Lightbox client:load>
-    <ProductGallery />
+    <ProductGallery class="lightbox-gallery" />
   </Lightbox>
 </Root>
 
@@ -41,6 +41,12 @@ import Lightbox from "@components/lightbox";
       align-items: center;
       grid-template-columns: repeat(2, 1fr);
       gap: clamp(2rem, -4.8571rem + 14.2857vw, 8rem);
+    }
+  }
+
+  .lightbox-gallery {
+    div {
+      overflow: visible;
     }
   }
 

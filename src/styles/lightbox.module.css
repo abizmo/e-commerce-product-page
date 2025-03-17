@@ -23,7 +23,23 @@
   }
 }
 
+.lightbox {
+  overflow: visible;
+}
+
 .lightbox ul {
   justify-content: center !important;
   gap: 2rem !important;
+}
+
+.lightbox nav {
+  --size: 3.5rem;
+  display: flex !important;
+  padding: 0 !important;
+  width: calc(100% + var(--size)) !important;
+  left: calc(var(--size) / -2);
+
+  button {
+    --btn-size: var(--size) !important;
+  }
 }
