@@ -8,7 +8,10 @@ interface Props {}
 function Lightbox({ children }: PropsWithChildren<Props>) {
   const { dialogRef, closeLightbox } = useModal();
   return (
-    <dialog className={style.container} ref={dialogRef}>
+    <dialog
+      className={[style.container, style.lightbox].join(" ")}
+      ref={dialogRef}
+    >
       <button className={style.btnClose} onClick={closeLightbox}>
         <CloseIcon height={22} width={21} />
         <span className="visually-hidden">close</span>

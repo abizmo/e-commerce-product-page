@@ -22,3 +22,8 @@
     color: var(--clr-primary);
   }
 }
+
+.lightbox ul {
+  justify-content: center !important;
+  gap: 2rem !important;
+}
