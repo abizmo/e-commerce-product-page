@@ -3,11 +3,13 @@ import { Image } from "astro:assets";
 
 import avatar from "@assets/images/avatar.png";
 import Icon from "@components/icon.astro";
+import CartGlobe from "./cart-globe";
 ---
 
 <nav class="flex-wrapper nav-user">
-  <button>
+  <button class="cart-button">
     <Icon icon="cart" />
+    <CartGlobe className="notification" client:load />
     <span class="visually-hidden">Menu</span>
   </button>
   <a href="#" class="avatar">
@@ -18,6 +20,16 @@ import Icon from "@components/icon.astro";
 <style>
   .nav-user {
     --flow-gap: 1.5rem;
+  }
+
+  .cart-button {
+    position: relative;
+  }
+
+  .notification {
+    position: absolute;
+    top: -50%;
+    transform: translateY(50%);
   }
 
   .avatar {

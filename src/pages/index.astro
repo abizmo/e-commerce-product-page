@@ -6,6 +6,7 @@ import DualButton from "@components/dual-button.astro";
 import AddButton from "@components/add-button.astro";
 import ProductGallery from "@components/product-gallery.astro";
 import Lightbox from "@components/lightbox";
+import { AddForm } from "@components/add-form";
 ---
 
 <Root
@@ -17,10 +18,10 @@ import Lightbox from "@components/lightbox";
     <ProductGallery />
     <div class="info-container">
       <ProductInfo class="mb-md" />
-      <div class="actions-wrapper">
+      <AddForm className="actions-wrapper" client:load>
         <DualButton />
         <AddButton />
-      </div>
+      </AddForm>
     </div>
   </main>
   <Lightbox client:load>
