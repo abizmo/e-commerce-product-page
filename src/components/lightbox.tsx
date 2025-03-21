@@ -1,7 +1,7 @@
 import { useModal } from "@hooks/useModal";
 import type { PropsWithChildren } from "react";
 import CloseIcon from "@components/close-icon";
-import style from "@/styles/lightbox.module.css";
+import style from "@styles/lightbox.module.css";
 
 interface Props {}
 
