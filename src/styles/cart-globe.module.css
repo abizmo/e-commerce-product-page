@@ -1,0 +1,8 @@
+.cartGlobe {
+  width: 1.25rem;
+  border-radius: 100px;
+  background-color: var(--clr-primary);
+  color: var(--clr-neutral-100);
+  font-size: var(--fs-100);
+  line-height: 1.5;
+}
