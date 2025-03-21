@@ -2,7 +2,7 @@
 import Root from "@layouts/root.astro";
 import Header from "@components/header.astro";
 import ProductInfo from "@components/product-info.astro";
-import DualButton from "@components/dual-button.astro";
+import DualButton from "@components/dual-button";
 import AddButton from "@components/add-button.astro";
 import ProductGallery from "@components/product-gallery.astro";
 import Lightbox from "@components/lightbox";
@@ -19,7 +19,7 @@ import { AddForm } from "@components/add-form";
     <div class="info-container">
       <ProductInfo class="mb-md" />
       <AddForm className="actions-wrapper" client:load>
-        <DualButton />
+        <DualButton client:load />
         <AddButton />
       </AddForm>
     </div>

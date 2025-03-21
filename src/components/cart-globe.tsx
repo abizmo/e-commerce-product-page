@@ -8,6 +8,7 @@ interface CartGlobeProps {
 
 function CartGlobe({ className, ...rest }: CartGlobeProps) {
   const cart = useStore(cartStore);
+
   if (cart.length === 0) return null;
   const totalItems = cart.reduce(
     (total, product) => total + product.quantity,
