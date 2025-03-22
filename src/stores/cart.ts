@@ -15,7 +15,6 @@ export function addToCart(product: Product) {
   const existingProduct = currentCart.find((item) => item.id === product.id);
 
   if (existingProduct) {
-    // Si ya está en el carrito, incrementa la cantidad
     cart.set(
       currentCart.map((item) =>
         item.id === product.id
@@ -24,12 +23,14 @@ export function addToCart(product: Product) {
       )
     );
   } else {
-    // Si no está en el carrito, agrégalo
     cart.set([...currentCart, { ...product }]);
   }
 }
 
-// Función para eliminar un producto del carrito
 export function removeFromCart(id: number) {
   cart.set(cart.get().filter((item) => item.id !== id));
+}
+
+export function clearCart() {
+  cart.set([]);
 }

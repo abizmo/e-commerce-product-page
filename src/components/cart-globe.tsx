@@ -1,5 +1,4 @@
-import { useStore } from "@nanostores/react";
-import { cart as cartStore } from "@stores/cart";
+import { useCart } from "@hooks/useCart";
 import style from "@styles/cart-globe.module.css";
 
 interface CartGlobeProps {
@@ -7,15 +6,10 @@ interface CartGlobeProps {
 }
 
 function CartGlobe({ className, ...rest }: CartGlobeProps) {
-  const cart = useStore(cartStore);
+  const { totalItems } = useCart();
 
-  if (cart.length === 0) return null;
-  const totalItems = cart.reduce(
-    (total, product) => total + product.quantity,
-    0
-  );
+  if (totalItems === 0) return null;
 
-  console.log(cart);
   return (
     <span className={[style.cartGlobe, className].join(" ")} {...rest}>
       {totalItems}

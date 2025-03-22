@@ -1,5 +1,6 @@
+import { useCart } from "@hooks/useCart";
 import { useStore } from "@nanostores/react";
-import { addToCart, type Product } from "@stores/cart";
+import { type Product } from "@stores/cart";
 import { counter as counterStore } from "@stores/counter";
 import type { PropsWithChildren } from "react";
 
@@ -12,6 +13,7 @@ export function AddForm({
   children,
   ...rest
 }: PropsWithChildren<AddFormProps>) {
+  const { addToCart } = useCart();
   const counter = useStore(counterStore);
   const product: Omit<Product, "quantity"> = {
     id: 1,

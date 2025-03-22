@@ -5,8 +5,9 @@ import ProductInfo from "@components/product-info.astro";
 import DualButton from "@components/dual-button";
 import AddButton from "@components/add-button.astro";
 import ProductGallery from "@components/product-gallery.astro";
-import Lightbox from "@components/lightbox";
 import { AddForm } from "@components/add-form";
+import LightboxModal from "@components/lightbox-modal.astro";
+import Cart from "@components/cart";
 ---
 
 <Root
@@ -23,10 +24,9 @@ import { AddForm } from "@components/add-form";
         <AddButton />
       </AddForm>
     </div>
+    <Cart className="cart" client:load />
   </main>
-  <Lightbox client:load>
-    <ProductGallery class="lightbox-gallery" />
-  </Lightbox>
+  <LightboxModal />
 </Root>
 
 <style>
@@ -34,6 +34,7 @@ import { AddForm } from "@components/add-form";
     --padding-inline: 0;
     display: grid;
     gap: 1.5rem;
+    position: relative;
 
     @media (width >= 48rem) {
       --padding-inline: 3rem;
@@ -42,12 +43,6 @@ import { AddForm } from "@components/add-form";
       align-items: center;
       grid-template-columns: repeat(2, 1fr);
       gap: clamp(2rem, -4.8571rem + 14.2857vw, 8rem);
-    }
-  }
-
-  .lightbox-gallery {
-    div {
-      overflow: visible;
     }
   }
 
@@ -65,6 +60,19 @@ import { AddForm } from "@components/add-form";
 
     @container (width >= 25rem) {
       grid-template-columns: 10rem 1fr;
+    }
+  }
+
+  .cart {
+    position: absolute;
+    top: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+
+    @media (width >= 48rem) {
+      top: -6rem;
+      left: 100%;
+      transform: translateX(-100%);
     }
   }
 </style>
