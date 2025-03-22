@@ -7,6 +7,7 @@ import AddButton from "@components/add-button.astro";
 import ProductGallery from "@components/product-gallery.astro";
 import Lightbox from "@components/lightbox";
 import { AddForm } from "@components/add-form";
+import Cart from "@components/cart";
 ---
 
 <Root
@@ -27,6 +28,12 @@ import { AddForm } from "@components/add-form";
   <Lightbox client:load>
     <ProductGallery class="lightbox-gallery" />
   </Lightbox>
+  <Cart client:load>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt ducimus,
+    atque praesentium nam tenetur blanditiis vel nulla magni velit,
+    reprehenderit incidunt nisi, deleniti laborum dolore non. Ab laboriosam
+    soluta ipsa.
+  </Cart>
 </Root>
 
 <style>
