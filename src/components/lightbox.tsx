@@ -7,6 +7,7 @@ interface Props {}
 
 function Lightbox({ children }: PropsWithChildren<Props>) {
   const { dialogRef, closeLightbox } = useModal();
+
   return (
     <dialog
       className={[style.container, style.lightbox].join(" ")}
