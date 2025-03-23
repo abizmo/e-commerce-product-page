@@ -17,11 +17,36 @@
 
 .cartContent {
   display: grid;
-  place-content: center;
+  padding: 1.5rem;
   min-height: 11rem;
   color: var(--clr-neutral-600);
+
+  @media (width<=48rem) {
+    place-content: center;
+  }
 }
 
 .cartEmpty {
   font-weight: var(--fw-bold);
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.itemImage {
+  width: 52px;
+  aspect-ratio: 1;
+  border-radius: 0.25rem;
+}
+
+.price {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.total {
+  font-weight: var(--fw-bold);
+  color: var(--clr-neutral-800);
 }

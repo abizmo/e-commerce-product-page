@@ -1,26 +1,20 @@
 import { useStore } from "@nanostores/react";
-import { useEffect, useRef } from "react";
-import { createModalStore } from "../stores/createModalStore";
-
-const cartStore = createModalStore();
+import {
+  cart as $cart,
+  addToCart,
+  clearCart,
+  removeFromCart,
+} from "@stores/cart";
 
 export function useCart() {
-  const isOpen = useStore(cartStore.isOpen);
-  const dialogRef = useRef<HTMLDialogElement | null>(null);
-
-  useEffect(() => {
-    if (isOpen) {
-      dialogRef.current?.show();
-    } else {
-      dialogRef.current?.close();
-    }
-  }, [isOpen]);
+  const cart = useStore($cart);
+  const totalItems = cart.reduce((total, { quantity }) => total + quantity, 0);
 
   return {
-    isOpen,
-    open: cartStore.open,
-    close: cartStore.close,
-    toggle: cartStore.toggle,
-    dialogRef,
+    cart,
+    totalItems,
+    addToCart,
+    removeFromCart,
+    clearCart,
   };
 }

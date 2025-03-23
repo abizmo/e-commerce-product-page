@@ -1,10 +1,10 @@
 import type { PropsWithChildren } from "react";
 import CartGlobe from "./cart-globe";
 import style from "@styles/cart-button.module.css";
-import { useCart } from "@hooks/useCart";
+import { useCartModal } from "@hooks/useCartModal";
 
 function CartButton({ children }: PropsWithChildren) {
-  const { toggle } = useCart();
+  const { toggle } = useCartModal();
 
   return (
     <button className={style.cartButton} onClick={toggle}>
