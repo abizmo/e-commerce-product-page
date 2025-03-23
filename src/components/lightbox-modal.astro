@@ -1,0 +1,16 @@
+---
+import Lightbox from "@components/lightbox";
+import ProductGallery from "@components/product-gallery.astro";
+---
+
+<Lightbox client:load>
+  <ProductGallery class="lightbox-gallery" />
+</Lightbox>
+
+<style>
+  .lightbox-gallery {
+    div {
+      overflow: visible;
+    }
+  }
+</style>

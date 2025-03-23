@@ -5,9 +5,9 @@ import ProductInfo from "@components/product-info.astro";
 import DualButton from "@components/dual-button";
 import AddButton from "@components/add-button.astro";
 import ProductGallery from "@components/product-gallery.astro";
-import Lightbox from "@components/lightbox";
 import { AddForm } from "@components/add-form";
-import Cart from "@components/cart";
+import LightboxModal from "@components/lightbox-modal.astro";
+import CartModal from "@components/cart-modal.astro";
 ---
 
 <Root
@@ -25,15 +25,8 @@ import Cart from "@components/cart";
       </AddForm>
     </div>
   </main>
-  <Lightbox client:load>
-    <ProductGallery class="lightbox-gallery" />
-  </Lightbox>
-  <Cart client:load>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt ducimus,
-    atque praesentium nam tenetur blanditiis vel nulla magni velit,
-    reprehenderit incidunt nisi, deleniti laborum dolore non. Ab laboriosam
-    soluta ipsa.
-  </Cart>
+  <LightboxModal />
+  <CartModal />
 </Root>
 
 <style>
@@ -49,12 +42,6 @@ import Cart from "@components/cart";
       align-items: center;
       grid-template-columns: repeat(2, 1fr);
       gap: clamp(2rem, -4.8571rem + 14.2857vw, 8rem);
-    }
-  }
-
-  .lightbox-gallery {
-    div {
-      overflow: visible;
     }
   }
 
