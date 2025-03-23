@@ -7,7 +7,7 @@ import AddButton from "@components/add-button.astro";
 import ProductGallery from "@components/product-gallery.astro";
 import { AddForm } from "@components/add-form";
 import LightboxModal from "@components/lightbox-modal.astro";
-import CartModal from "@components/cart-modal.astro";
+import Cart from "@components/cart";
 ---
 
 <Root
@@ -24,9 +24,9 @@ import CartModal from "@components/cart-modal.astro";
         <AddButton />
       </AddForm>
     </div>
+    <Cart className="cart" client:load />
   </main>
   <LightboxModal />
-  <CartModal />
 </Root>
 
 <style>
@@ -34,6 +34,7 @@ import CartModal from "@components/cart-modal.astro";
     --padding-inline: 0;
     display: grid;
     gap: 1.5rem;
+    position: relative;
 
     @media (width >= 48rem) {
       --padding-inline: 3rem;
@@ -59,6 +60,19 @@ import CartModal from "@components/cart-modal.astro";
 
     @container (width >= 25rem) {
       grid-template-columns: 10rem 1fr;
+    }
+  }
+
+  .cart {
+    position: absolute;
+    top: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+
+    @media (width >= 48rem) {
+      top: -6rem;
+      left: 100%;
+      transform: translateX(-100%);
     }
   }
 </style>
