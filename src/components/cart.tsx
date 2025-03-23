@@ -1,4 +1,4 @@
-import style from "@styles/Cart.module.css";
+import style from "@styles/cart.module.css";
 import { useCartModal } from "@hooks/useCartModal";
 import { useCart } from "@hooks/useCart";
 import formatPrice from "@utils/format-price";
