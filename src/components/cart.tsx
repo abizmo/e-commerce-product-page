@@ -20,9 +20,11 @@ function Cart({ className, ...rest }: Props) {
       <header className={style.cartHeader}>
         <h2 className={style.cartTitle}>Cart</h2>
       </header>
-      <main className={style.cartContent}>
+      <main
+        className={`${style.cartContent} ${totalItems === 0 ? style.cartEmpty : ""}`}
+      >
         {totalItems === 0 ? (
-          <p className={style.cartEmpty}>Your cart is empty.</p>
+          <p>Your cart is empty.</p>
         ) : (
           <>
             <ul>

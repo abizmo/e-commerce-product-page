@@ -20,14 +20,11 @@
   padding: 1.5rem;
   min-height: 11rem;
   color: var(--clr-neutral-600);
-
-  @media (width<=48rem) {
-    place-content: center;
-  }
 }
 
 .cartEmpty {
   font-weight: var(--fw-bold);
+  place-content: center;
 }
 
 .item {
