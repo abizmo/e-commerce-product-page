@@ -26,3 +26,15 @@
   font-weight: var(--fw-bold);
   place-content: center;
 }
+
+.checkoutButton {
+  background-color: var(--clr-primary);
+  color: var(--clr-neutral-800);
+  font-weight: var(--fw-bold);
+  border-radius: 0.75rem;
+
+  &:hover,
+  &:focus-within {
+    background-color: hsl(var(--hsl-orange) / 0.7);
+  }
+}

@@ -8,8 +8,13 @@ interface Props {
 }
 
 function Cart({ className, ...rest }: Props) {
-  const { dialogRef } = useCartModal();
-  const { cart, totalItems, removeFromCart } = useCart();
+  const { dialogRef, close } = useCartModal();
+  const { cart, totalItems, clearCart } = useCart();
+
+  const handleCheckout = () => {
+    clearCart();
+    close();
+  };
 
   return (
     <dialog
@@ -34,7 +39,9 @@ function Cart({ className, ...rest }: Props) {
                 </li>
               ))}
             </ul>
-            <button>Checkout</button>
+            <button className={style.checkoutButton} onClick={handleCheckout}>
+              Checkout
+            </button>
           </>
         )}
       </main>
