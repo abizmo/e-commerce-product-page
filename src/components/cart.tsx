@@ -1,7 +1,7 @@
 import style from "@styles/cart.module.css";
 import { useCartModal } from "@hooks/useCartModal";
 import { useCart } from "@hooks/useCart";
-import formatPrice from "@utils/format-price";
+import CartItem from "./cart-item";
 
 interface Props {
   className?: string;
@@ -9,7 +9,7 @@ interface Props {
 
 function Cart({ className, ...rest }: Props) {
   const { dialogRef } = useCartModal();
-  const { cart, totalItems } = useCart();
+  const { cart, totalItems, removeFromCart } = useCart();
 
   return (
     <dialog
@@ -28,21 +28,9 @@ function Cart({ className, ...rest }: Props) {
         ) : (
           <>
             <ul>
-              {cart.map(({ id, name, price, image, quantity }) => (
-                <li className={style.item} key={id}>
-                  <img className={style.itemImage} src={image} alt={name} />
-                  <div>
-                    <p>{name}</p>
-                    <div className={style.price}>
-                      <span>
-                        {formatPrice(price)} x {quantity}
-                      </span>
-                      <span className={style.total}>
-                        {formatPrice(price * quantity)}
-                      </span>
-                    </div>
-                  </div>
-                  <button>B</button>
+              {cart.map((product) => (
+                <li key={product.id}>
+                  <CartItem {...product} />
                 </li>
               ))}
             </ul>

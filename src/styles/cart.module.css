@@ -26,24 +26,3 @@
   font-weight: var(--fw-bold);
   place-content: center;
 }
-
-.item {
-  display: flex;
-  justify-content: space-between;
-}
-
-.itemImage {
-  width: 52px;
-  aspect-ratio: 1;
-  border-radius: 0.25rem;
-}
-
-.price {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.total {
-  font-weight: var(--fw-bold);
-  color: var(--clr-neutral-800);
-}
